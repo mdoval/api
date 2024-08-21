@@ -21,5 +21,5 @@ export async function POST(req: Request, res: NextApiResponse) {
     const filePath = path.join(dir+fileName)
     writeFile(filePath, buffer)
 
-    return NextResponse.json({status: "Ok", url: url+fileName, message: "Archivo subido con exito"})
+    return NextResponse.json({status: "Ok", url: url+fileName, message: "Archivo subido con exito a la ruta "+dir+fileName})
 }
