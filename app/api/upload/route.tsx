@@ -8,7 +8,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     const file: File = data.get('file') as File
 
     if(!file) {
-        return NextResponse.json({message: "No existe la propiedad File en el formulario enviado"})
+        return NextResponse.json({status: "Ok", url: "No existe", message: "No existe la propiedad File en el formulario enviado"})
     }
 
     const bytes = await file.arrayBuffer()
@@ -21,5 +21,5 @@ export async function POST(req: Request, res: NextApiResponse) {
     const filePath = path.join(dir+fileName)
     writeFile(filePath, buffer)
 
-    return NextResponse.json({message: "Se subio correctamente el archivo", url: url+fileName})
+    return NextResponse.json({status: "Ok", url: url+fileName, message: "Archivo subido con exito"})
 }
